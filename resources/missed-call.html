@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a missed call costs · TOAO</title>
+<meta name="description" content="Four sliders, your numbers. See what walks to the next name on the list every year while the phone rings out.">
+<meta property="og:image" content="https://toao.app/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0908">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a0908'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23ff5a1f' stroke-width='4.5'/%3E%3Cpath d='M20 23h24v6.5H35.2V44h-6.4V29.5H20z' fill='%23f3efe8'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../page.css">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="../index.html" aria-label="TOAO home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><circle class="ring" cx="32" cy="32" r="26"/><path class="tee" d="M18 21h28v7.5H35.8V45h-7.6V28.5H18z"/></svg></span><span class="brand-word">T<em>O</em>AO</span></a>
+    <div class="nav-links"><a href="../index.html#journey">The twelve</a><a href="../index.html#flagships">Flagships</a><a href="../resources/index.html">Resources</a><a href="../index.html#founder">Founder</a></div>
+    <a class="btn btn-sm btn-glass-light" href="../index.html#schedule">Schedule a call <span class="arrow" aria-hidden="true">→</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </nav>
+</header>
+<div class="menu" id="menu" hidden>
+  <a href="../index.html#journey" style="--i:0">The twelve</a>
+  <a href="../index.html#flagships" style="--i:1">Flagships</a>
+  <a href="../resources/index.html" style="--i:2">Resources</a>
+  <a href="../index.html#founder" style="--i:3">Founder</a>
+  <a href="../index.html#schedule" style="--i:4">Schedule a call</a>
+</div>
+<main id="main">
+
+<section class="calc page" id="calc">
+  <div class="wrap">
+    <div class="page-head"><p class="eyebrow">Free resource · Calculator</p><h1>What a missed call costs you.</h1><p class="lede">Drag the sliders to your business. Nothing here is a claim we make; every number comes from what you set.</p></div>
+    <div class="bezel"><div class="bezel-in">
+      <div>
+        <p class="eyebrow">Your numbers, our math</p>
+        <div class="ranges">
+          <div class="range"><label for="rCalls">Calls a week</label><output id="oCalls"></output><input id="rCalls" type="range" min="5" max="200" step="5" value="40"></div>
+          <div class="range"><label for="rMissed">Missed or sent to voicemail</label><output id="oMissed"></output><input id="rMissed" type="range" min="0" max="80" step="5" value="30"></div>
+          <div class="range"><label for="rJob">Average job value</label><output id="oJob"></output><input id="rJob" type="range" min="50" max="5000" step="50" value="450"></div>
+          <div class="range"><label for="rBook">Missed callers who would have booked</label><output id="oBook"></output><input id="rBook" type="range" min="0" max="100" step="5" value="35"></div>
+        </div>
+      </div>
+      <div class="calc-out">
+        <p class="mono">Leaving every year</p>
+        <p class="calc-big" id="calcBig">$0</p>
+        <p class="calc-line" id="calcA"></p>
+        <p class="calc-line" id="calcB"></p>
+        <a class="btn" href="../index.html#schedule">Stop the leak <span class="btn-ic" aria-hidden="true">↗</span></a>
+        <p class="calc-fine">The voice agent answers in one ring, 24 hours a day. The audit shows you the real count from your phone records.</p>
+      </div>
+    </div></div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div><span class="brand-word">T<em>O</em>AO</span><p class="mono">The One And Only</p><p class="foot-blurb">One team that looks at the whole business once, shows what is possible, and closes every gap.</p></div>
+      <div><p class="foot-h">Site</p><a href="../index.html#journey">The twelve</a><a href="../index.html#flagships">Flagships</a><a href="../index.html#process">Process</a><a href="../index.html#founder">Founder</a><a href="../index.html#schedule">Schedule a call</a></div>
+      <div><p class="foot-h">Free resources</p><a href="../resources/website-audit.html">Website auditor</a><a href="missed-call.html">Cost of a missed call</a><a href="../index.html#leaks">Where to start</a><a href="../resources/index.html">All resources</a></div>
+      <div><p class="foot-h">Company</p><a href="mailto:owen@toao.app">owen@toao.app</a><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a></div>
+    </div>
+    <div class="foot-bottom"><p class="mono foot-copy">South Florida · © 2026 TOAO</p><p class="mono foot-copy">No trackers, no cookies, no third-party scripts.</p></div>
+  </div>
+</footer>
+<script src="../site.js" defer></script>
+<script src="../interact.js" defer></script>
+</body>
+</html>

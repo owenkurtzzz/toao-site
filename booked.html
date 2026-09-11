@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booked · TOAO</title>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:image" content="https://toao.app/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0908">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a0908'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23ff5a1f' stroke-width='4.5'/%3E%3Cpath d='M20 23h24v6.5H35.2V44h-6.4V29.5H20z' fill='%23f3efe8'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="motion.css">
+<style>
+.done{min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:120px 0 80px}
+.done-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:start}
+.done h1{font-size:clamp(2.4rem,5vw,4.4rem)}
+.done .when{font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:600;letter-spacing:-.02em;margin:22px 0 10px}
+.done .muted{max-width:52ch}
+.next{list-style:none;margin:0;padding:0;counter-reset:n}
+.next li{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:20px 0;border-top:1px solid var(--hair)}
+.next li:last-child{border-bottom:1px solid var(--hair)}
+.next .mono{color:var(--accent);padding-top:4px}
+.next h3{font-size:1.1rem;margin-bottom:6px}
+.next p{color:var(--muted);font-size:.97rem}
+.ready .bezel-in{padding:28px}
+.ready h2{font-size:1.4rem;margin-bottom:14px}
+.ready .checks li{font-size:.97rem}
+.done .cta-row{margin-top:30px}
+.tick{width:64px;height:64px;border-radius:50%;background:var(--ok-wash);border:1px solid rgba(61,220,132,.35);display:grid;place-items:center;margin-bottom:26px;animation:bubble .6s var(--spring) both}
+.tick svg{width:28px;height:28px;stroke:var(--ok);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.done-grid{grid-template-columns:1fr}.done{padding-top:110px}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" aria-label="TOAO home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><circle class="ring" cx="32" cy="32" r="26"/><path class="tee" d="M18 21h28v7.5H35.8V45h-7.6V28.5H18z"/></svg></span><span class="brand-word">T<em>O</em>AO</span></a>
+    <div class="nav-links"><a href="index.html#journey">The twelve</a><a href="index.html#flagships">Flagships</a><a href="index.html#founder">Founder</a></div>
+    <a class="btn btn-sm btn-glass-light" href="index.html">Back to the site <span class="arrow" aria-hidden="true">→</span></a>
+  </nav>
+</header>
+<main>
+<section class="done">
+  <div class="wrap done-grid">
+    <div>
+      <div class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
+      <p class="eyebrow">Booked</p>
+      <h1>You're on the calendar<span id="who"></span>.</h1>
+      <p class="when" id="when">Your audit call is set.</p>
+      <p class="muted" id="sub">A calendar invite is on its way to your inbox. Owen calls you at that time; you don't need to dial anything.</p>
+      <div class="cta-row">
+        <a class="btn" id="addCal" href="#" target="_blank" rel="noopener">Add to your calendar <span class="btn-ic" aria-hidden="true">↗</span></a>
+        <a class="btn btn-ghost" href="index.html#journey">See the twelve systems</a>
+      </div>
+      <ol class="next" style="margin-top:44px">
+        <li><span class="mono">01</span><div><h3>Fifteen minutes before</h3><p>You get a text from Owen with his number so the call isn't a surprise.</p></div></li>
+        <li><span class="mono">02</span><div><h3>On the call</h3><p>Fifteen minutes. He asks how the phone is answered today, where the jobs come from, where the money goes and what lives in a spreadsheet. No pitch.</p></div></li>
+        <li><span class="mono">03</span><div><h3>Within two days</h3><p>You get every gap we found, ranked by what it costs you, with what it takes to close each one. You keep the list whether you hire us or not.</p></div></li>
+      </ol>
+    </div>
+    <div class="bezel ready"><div class="bezel-in">
+      <h2>Worth having open</h2>
+      <ul class="checks">
+        <li>The phone number you advertise, and who answers it after 5 PM</li>
+        <li>Your website address, even if you're not proud of it</li>
+        <li>Roughly how many calls or leads a week, best guess is fine</li>
+        <li>Where you spend on ads, if anywhere</li>
+        <li>The one thing that keeps you up at night about the business</li>
+      </ul>
+      <p class="muted" style="margin-top:18px;font-size:.92rem">None of it is required. The call works with whatever you know off the top of your head.</p>
+    </div></div>
+  </div>
+</section>
+</main>
+<footer class="foot"><div class="wrap foot-grid"><div><span class="brand-word">T<em>O</em>AO</span><p class="mono">The One And Only</p></div><p class="mono foot-copy">South Florida · © 2026 TOAO</p></div></footer>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var name = (q.get('name') || '').trim(), start = q.get('start'), tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (name) document.getElementById('who').textContent = ', ' + name.split(' ')[0];
+  if (start) {
+    var s = new Date(start), e = new Date(s.getTime() + 15 * 60000);
+    var day = new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric' }).format(s);
+    var time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(s);
+    document.getElementById('when').textContent = day + ' at ' + time;
+    var iso = function (d) { return d.toISOString().replace(/[-:]|\.\d{3}/g, ''); };
+    document.getElementById('addCal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent('TOAO audit call with Owen') + '&dates=' + iso(s) + '/' + iso(e) + '&details=' + encodeURIComponent('15-minute free business audit. Owen calls you.');
+  }
+  if (q.get('mode') === 'request') document.getElementById('sub').textContent = 'Your mail app has the request. Owen confirms by calendar invite the same day, usually within the hour.';
+})();
+</script>
+</body>
+</html>

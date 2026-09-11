@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free website auditor · TOAO</title>
+<meta name="description" content="Paste your address. We fetch the page once, score it on checks you can verify yourself, and build you a better homepage from what your site already says.">
+<meta property="og:image" content="https://toao.app/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0908">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a0908'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23ff5a1f' stroke-width='4.5'/%3E%3Cpath d='M20 23h24v6.5H35.2V44h-6.4V29.5H20z' fill='%23f3efe8'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../page.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="../index.html" aria-label="TOAO home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><circle class="ring" cx="32" cy="32" r="26"/><path class="tee" d="M18 21h28v7.5H35.8V45h-7.6V28.5H18z"/></svg></span><span class="brand-word">T<em>O</em>AO</span></a>
+    <div class="nav-links"><a href="../index.html#journey">The twelve</a><a href="../index.html#flagships">Flagships</a><a href="../resources/index.html">Resources</a><a href="../index.html#founder">Founder</a></div>
+    <a class="btn btn-sm btn-glass-light" href="../index.html#schedule">Schedule a call <span class="arrow" aria-hidden="true">→</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </nav>
+</header>
+<div class="menu" id="menu" hidden>
+  <a href="../index.html#journey" style="--i:0">The twelve</a>
+  <a href="../index.html#flagships" style="--i:1">Flagships</a>
+  <a href="../resources/index.html" style="--i:2">Resources</a>
+  <a href="../index.html#founder" style="--i:3">Founder</a>
+  <a href="../index.html#schedule" style="--i:4">Schedule a call</a>
+</div>
+<main id="main">
+
+<section class="page">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="eyebrow">Free resource · Website auditor</p>
+      <h1>Paste your address. See what a homeowner sees.</h1>
+      <p class="lede">We fetch your homepage once, score it on things you can check yourself, then build a cleaner version from nothing but what your site already says. No sign-up, nothing stored.</p>
+    </div>
+    <form class="audit-row" id="auditForm" novalidate>
+      <input id="auditUrl" type="url" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" aria-label="Your website address" required>
+      <button class="btn" id="auditBtn" type="submit">Audit it <span class="btn-ic" aria-hidden="true">↗</span></button>
+    </form>
+    <p class="audit-status" id="auditStatus"></p>
+
+    <div id="results" hidden>
+      <div class="audit-grid">
+        <div class="bezel audit-card"><div class="bezel-in">
+          <div class="overall">
+            <div class="dial" id="dialOverall"><svg viewBox="0 0 96 96"><circle class="track" cx="48" cy="48" r="42"/><circle class="bar" cx="48" cy="48" r="42"/></svg><b>0</b></div>
+            <div><h4 id="resHost"></h4><p id="resSub"></p></div>
+          </div>
+          <ul class="dials"><li><div class="dial" id="dial-security"><svg viewBox="0 0 96 96"><circle class="track" cx="48" cy="48" r="42"/><circle class="bar" cx="48" cy="48" r="42"/></svg><b>0</b></div><span>Security</span></li><li><div class="dial" id="dial-speed"><svg viewBox="0 0 96 96"><circle class="track" cx="48" cy="48" r="42"/><circle class="bar" cx="48" cy="48" r="42"/></svg><b>0</b></div><span>Speed</span></li><li><div class="dial" id="dial-mobile"><svg viewBox="0 0 96 96"><circle class="track" cx="48" cy="48" r="42"/><circle class="bar" cx="48" cy="48" r="42"/></svg><b>0</b></div><span>Mobile</span></li><li><div class="dial" id="dial-trust"><svg viewBox="0 0 96 96"><circle class="track" cx="48" cy="48" r="42"/><circle class="bar" cx="48" cy="48" r="42"/></svg><b>0</b></div><span>Trust</span></li><li><div class="dial" id="dial-fresh"><svg viewBox="0 0 96 96"><circle class="track" cx="48" cy="48" r="42"/><circle class="bar" cx="48" cy="48" r="42"/></svg><b>0</b></div><span>Freshness</span></li><li><div class="dial" id="dial-search"><svg viewBox="0 0 96 96"><circle class="track" cx="48" cy="48" r="42"/><circle class="bar" cx="48" cy="48" r="42"/></svg><b>0</b></div><span>Search basics</span></li></ul>
+          <div class="facts" id="facts"></div>
+        </div></div>
+        <div class="bezel audit-card"><div class="bezel-in">
+          <h3>What we found</h3>
+          <p class="sub">Every line is a check you can repeat on your own phone. No opinions about colours.</p>
+          <ul class="findings" id="findings"></ul>
+        </div></div>
+      </div>
+
+      <div class="bezel preview" id="preview"><div class="bezel-in">
+        <div class="prev-bar">
+          <span class="mono">A better homepage, built from <b id="prevHost"></b></span>
+          <div class="prev-tabs"><button type="button" class="on" data-view="desktop">Desktop</button><button type="button" data-view="mobile">Phone</button></div>
+        </div>
+        <div class="prev-frame" id="prevWrap"><iframe id="prevFrame" title="Preview of a rebuilt homepage" sandbox="allow-same-origin"></iframe></div>
+        <p class="prev-note">This is a sketch, not the finished site. It uses your headline, description, services, phone, address and licence exactly as your site states them. Anything we could not find on your site is left out rather than made up. The real build adds your photos, hours, reviews you actually have, and a form that reaches you.</p>
+      </div></div>
+
+      <div class="audit-cta">
+        <a class="btn" id="ctaBook" href="../index.html#schedule">Build this for real <span class="btn-ic" aria-hidden="true">↗</span></a>
+        <a class="btn btn-ghost" id="ctaMail" href="mailto:owen@toao.app">Email me this report</a>
+      </div>
+      <p class="audit-status" id="relayNote" hidden>Fetched through a public relay while our own fetcher is being set up. The relay sees the address you typed and nothing else.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div><span class="brand-word">T<em>O</em>AO</span><p class="mono">The One And Only</p><p class="foot-blurb">One team that looks at the whole business once, shows what is possible, and closes every gap.</p></div>
+      <div><p class="foot-h">Site</p><a href="../index.html#journey">The twelve</a><a href="../index.html#flagships">Flagships</a><a href="../index.html#process">Process</a><a href="../index.html#founder">Founder</a><a href="../index.html#schedule">Schedule a call</a></div>
+      <div><p class="foot-h">Free resources</p><a href="../resources/website-audit.html">Website auditor</a><a href="missed-call.html">Cost of a missed call</a><a href="../index.html#leaks">Where to start</a><a href="../resources/index.html">All resources</a></div>
+      <div><p class="foot-h">Company</p><a href="mailto:owen@toao.app">owen@toao.app</a><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a></div>
+    </div>
+    <div class="foot-bottom"><p class="mono foot-copy">South Florida · © 2026 TOAO</p><p class="mono foot-copy">No trackers, no cookies, no third-party scripts.</p></div>
+  </div>
+</footer>
+<script src="../site.js" defer></script>
+<script src="../audit.js" defer></script>
+</body>
+</html>
