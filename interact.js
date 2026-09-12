@@ -66,6 +66,27 @@
     }
   }
 
+  /* ---------- ad dollar tracer ---------- */
+  const funnel = $('#funnel');
+  if (funnel) {
+    const NOTES = {
+      1: ['Dies here', 'The click paid for a page that took too long or said "Not Secure". They hit back and call the next ad.'],
+      2: ['Dies here', 'The page worked. The phone rang four times at 6:40 PM and went to voicemail. They hired whoever answered.'],
+      3: ['Dies here', 'Somebody answered, then "we\'ll call you back". By the time you did, the job was booked elsewhere.'],
+      4: ['Leaks here', 'The job got done. The invoice went out three weeks later and got paid after the second reminder, if at all.'],
+    };
+    const nodes = $$('.node', funnel), out = $('#tracerOut'), togs = $$('.tog');
+    function paint() {
+      const off = togs.filter((b) => b.getAttribute('aria-pressed') === 'false').map((b) => +b.dataset.node);
+      const first = off.length ? Math.min.apply(null, off) : 0;
+      nodes.forEach((n) => { const k = +n.dataset.n; const em = n.querySelector('em'); const broken = first > 0 && k === first; n.classList.toggle('broken', broken); em.textContent = broken ? NOTES[k][0] : (first && k > first ? 'never reached' : ''); });
+      out.classList.toggle('bad', !!first);
+      out.textContent = first ? NOTES[first][1] + ' The ad did its job. The business did not, and the ad gets the blame.' : 'Every link holds. The dollar you spent on the click comes back as a paid job, and the ad that produced it gets more budget tomorrow morning.';
+    }
+    togs.forEach((b) => b.addEventListener('click', () => { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); paint(); }));
+    paint();
+  }
+
   /* ---------- tilt on system tiles, pointer devices only ---------- */
   if (!REDUCED && matchMedia('(pointer: fine)').matches) {
     $$('.sys').forEach((el) => {

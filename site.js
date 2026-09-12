@@ -8,14 +8,14 @@
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
   /* ---------- counters ---------- */
-  function countTo(el, to, ms, suffix) {
-    suffix = suffix || '';
-    if (REDUCED || ms === 0) { el.textContent = to.toLocaleString() + suffix; return; }
+  function countTo(el, to, ms, suffix, prefix) {
+    suffix = suffix || ''; prefix = prefix || '';
+    if (REDUCED || ms === 0) { el.textContent = prefix + to.toLocaleString() + suffix; return; }
     const start = performance.now();
     (function tick(now) {
       const p = Math.min((now - start) / ms, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(to * eased).toLocaleString() + suffix;
+      el.textContent = prefix + Math.round(to * eased).toLocaleString() + suffix;
       if (p < 1) requestAnimationFrame(tick);
     })(start);
   }
@@ -28,7 +28,22 @@
     if (!lowData) {
       vid.src = matchMedia('(max-width: 760px)').matches ? vid.dataset.srcMobile : vid.dataset.src;
       vid.preload = 'auto'; const p = vid.play(); if (p && p.catch) p.catch(() => {});
+      const tog = $('#vidToggle');
+      if (tog) {
+        tog.hidden = false;
+        tog.addEventListener('click', () => {
+          const paused = !vid.paused; if (paused) vid.pause(); else vid.play();
+          tog.setAttribute('aria-pressed', String(paused)); tog.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+        });
+      }
     }
+  }
+
+  /* ---------- nav goes solid over light chapters ---------- */
+  const lightSections = $$('.ads'), navEl = $('.nav');
+  if (lightSections.length && navEl && 'IntersectionObserver' in window) {
+    const nio = new IntersectionObserver((es) => { navEl.classList.toggle('on-light', es.some((e) => e.isIntersecting)); }, { rootMargin: '-40px 0px -92% 0px' });
+    lightSections.forEach((s) => nio.observe(s));
   }
 
   /* ---------- scroll reveal (once) ---------- */
@@ -102,7 +117,7 @@
   if ($('#console')) {
   const tabs = $$('.con-tabs [role=tab]');
   const panes = $$('.pane');
-  let current = 'voice', auto = true, run = 0;
+  let current = 'ads', auto = true, run = 0;
 
   const VOICE = [
     ['sys', 'Call answered in 1 ring'],
@@ -174,6 +189,7 @@
 
   /* the step list on the left follows the demo */
   const STEPS = {
+    ads: [['Pulled yesterday, per ad', 'Spend, calls and booked jobs from Meta and Google.'], ['Matched leads to jobs', 'Which ad rang the phone, which call became a booking.'], ['Cut and scaled', 'The slogan ad is paused. The after-hours video gets more.'], ['Told the owner', 'One paragraph, no dashboard. Same again tomorrow at six.']],
     voice: [['Picked up in one ring', 'No voicemail, no "leave a message".'], ['Understood the job', 'Grinding pump, green water: a repair, not a cleaning.'], ['Offered real openings', 'Two slots from the actual calendar. No double-booking.'], ['Booked, texted, notified', 'Customer gets a confirmation. You get the summary.']],
     site: [['Fetched the page', 'One request, no third-party scripts.'], ['Measured, not promised', 'Accessibility and best practices at 100.'], ['Light enough for cellular', 'Under 45 kB. Loads before they give up.'], ['Built from real content', 'Their services, hours and licence. Nothing invented.']],
     ai: [['Question asked in plain words', 'No query language, no training.'], ['Files searched on your hardware', 'The documents never leave the building.'], ['Answer with citations', 'Every claim points at the file and the page.'], ['Nothing sent to a public model', 'You can watch the network traffic to prove it.']],
@@ -183,8 +199,27 @@
   function step(n) { if (!stepsEl) return; $$('li', stepsEl).forEach((li, i) => { li.classList.toggle('on', i === n - 1); li.classList.toggle('done', i < n - 1 || n > 4 && i === 3); }); }
   const wave = $('#wave');
 
-  const PLAYERS = { voice: playVoice, site: playSite, ai: playAI };
-  const ORDER = ['voice', 'site', 'ai'];
+  const ADLOG = [['06:01', 'C: 1 call, 0 jobs, three days below the line. Paused.'], ['06:02', 'A: lowest cost per booked job this week. Budget +40%.'], ['06:03', 'B: holding. Two bookings from four calls, watching.'], ['06:04', 'Note sent to the owner. 3 lines, no dashboard.']];
+  async function playAds(id) {
+    const rows = $$('#adrows li'), log = $('#adlog'), state = $('#adsState');
+    rows.forEach((r) => { r.classList.remove('cut', 'win'); r.querySelector('.adflag').hidden = true; r.querySelector('.adbar i').style.setProperty('--w', '33%'); $$('[data-k]', r).forEach((b) => { b.textContent = (b.dataset.pre || '') + '0'; }); });
+    log.innerHTML = ''; state.textContent = 'reading'; state.className = 'chip chip-live'; step(1);
+    await wait(REDUCED ? 0 : 500); if (run !== id) return;
+    rows.forEach((r, i) => $$('[data-k]', r).forEach((b, k) => setTimeout(() => { if (run === id) countTo(b, +b.dataset.k, 800, '', b.dataset.pre || ''); }, REDUCED ? 0 : i * 120 + k * 80)));
+    await wait(REDUCED ? 0 : 1500); if (run !== id) return; step(2); state.textContent = 'deciding';
+    for (let i = 0; i < ADLOG.length; i++) {
+      if (run !== id) return;
+      const s = document.createElement('span'); s.innerHTML = '<b>' + ADLOG[i][0] + '</b>' + ADLOG[i][1]; log.appendChild(s);
+      if (i === 0) { rows[2].classList.add('cut'); const f = rows[2].querySelector('.adflag'); f.textContent = 'paused'; f.hidden = false; rows[2].querySelector('.adbar i').style.setProperty('--w', '0%'); step(3); }
+      if (i === 1) { rows[0].classList.add('win'); const f = rows[0].querySelector('.adflag'); f.textContent = '+40%'; f.className = 'chip adflag chip-ok'; f.hidden = false; rows[0].querySelector('.adbar i').style.setProperty('--w', '62%'); rows[1].querySelector('.adbar i').style.setProperty('--w', '38%'); }
+      await wait(REDUCED ? 0 : 1100);
+    }
+    if (run !== id) return;
+    state.textContent = 'done for today'; state.className = 'chip chip-ok'; step(5);
+  }
+
+  const PLAYERS = { ads: playAds, voice: playVoice, site: playSite, ai: playAI };
+  const ORDER = ['ads', 'voice', 'site', 'ai'];
 
   function show(name) {
     current = name; stepsFor(name);
@@ -204,9 +239,9 @@
 
   // start the demo when the console is actually on screen
   const con = $('#console');
-  if (REDUCED || !('IntersectionObserver' in window)) { show('voice'); }
+  if (REDUCED || !('IntersectionObserver' in window)) { show('ads'); }
   else {
-    const cio = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { cio.disconnect(); show('voice'); } }, { threshold: 0.15 });
+    const cio = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { cio.disconnect(); show('ads'); } }, { threshold: 0.15 });
     cio.observe(con);
   }
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && auto && !REDUCED) show(current); });

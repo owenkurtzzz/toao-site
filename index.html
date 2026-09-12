@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="motion.css">
 <link rel="stylesheet" href="book.css">
 <link rel="stylesheet" href="page.css">
+<link rel="stylesheet" href="ads.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -31,6 +32,7 @@
       <span class="brand-word">T<em>O</em>AO</span>
     </a>
     <div class="nav-links">
+      <a href="#ads">Ads</a>
       <a href="#journey">The twelve</a>
       <a href="#flagships">Flagships</a>
       <a href="#process">Process</a>
@@ -42,7 +44,8 @@
   </nav>
 </header>
 <div class="menu" id="menu" hidden>
-  <a href="#journey" style="--i:0">The twelve</a>
+  <a href="#ads" style="--i:0">Ads</a>
+  <a href="#journey" style="--i:1">The twelve</a>
   <a href="#flagships" style="--i:1">Flagships</a>
   <a href="#process" style="--i:2">Process</a>
   <a href="#founder" style="--i:3">Founder</a>
@@ -57,13 +60,19 @@
     <div class="hero-inner">
       <p class="pill"><span class="pulse" aria-hidden="true"></span>Now booking free audits · South Florida</p>
       <h1>Not another vendor.<br>The one that fixes the whole business.</h1>
-      <p class="lede">Every call answered. Every page fast. Every ad dollar watched. Every file private. TOAO looks at your operation once, shows you what is possible, then closes the gaps.</p>
+      <p class="lede">We run the ads, answer the calls they bring, and build the page they land on. One team that owns the whole line from click to paid invoice, so no dollar leaks between vendors.</p>
       <div class="cta-row">
         <a class="btn btn-glass-light" href="#schedule">Schedule the free audit <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn btn-glass-dark" href="#demo">See it running</a>
       </div>
+      <form class="hero-audit" action="resources/website-audit.html" method="get">
+        <input type="text" name="url" inputmode="url" autocomplete="url" placeholder="Or paste your site, e.g. yourbusiness.com…" spellcheck="false" aria-label="Your website address">
+        <button class="btn" type="submit">Audit it free <span class="btn-ic" aria-hidden="true">↗</span></button>
+      </form>
+      <p class="hero-note">The auditor scores your homepage in your browser and shows you a cleaner version. No sign-up, nothing stored.</p>
     </div>
   </div>
+  <button type="button" class="vid-toggle" id="vidToggle" aria-label="Pause background video" aria-pressed="false" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-pause" d="M8 6v12M16 6v12"/><path class="ic-play" d="M8 5v14l11-7z"/></svg></button>
   <a class="cue" href="#demo" aria-label="Scroll"><span></span></a>
 </section>
 <!-- DEMO -->
@@ -71,9 +80,9 @@
   <div class="wrap">
     <div class="demo-grid">
     <div class="demo-copy">
-      <p class="eyebrow reveal">Watch it work</p>
-      <h2 class="reveal">Three of the twelve, running right now.</h2>
-      <p class="muted reveal">Click a tab. The call, the site and the private AI are the same systems we put in your business. The list below follows along.</p>
+      <p class="eyebrow reveal"><span class="chap-n">01</span>Watch it work</p>
+      <h2 class="reveal">Four of the twelve, running right now.</h2>
+      <p class="muted reveal">Click a tab. The ad loop, the call, the site and the private AI are the same systems we put in your business. The list below follows along.</p>
       <ol class="demo-steps" id="demoSteps" aria-live="polite"></ol>
     </div>
     <div class="console bezel" id="console" aria-label="Live demo of the three flagship systems">
@@ -81,14 +90,24 @@
         <div class="con-bar">
           <span class="con-dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <div class="con-tabs" role="tablist" aria-label="Demo">
-            <button role="tab" class="on" data-tab="voice" aria-selected="true">Voice</button>
+            <button role="tab" class="on" data-tab="ads" aria-selected="true">Ads</button>
+            <button role="tab" data-tab="voice" aria-selected="false">Voice</button>
             <button role="tab" data-tab="site" aria-selected="false">Website</button>
             <button role="tab" data-tab="ai" aria-selected="false">Private AI</button>
           </div>
           <span class="con-live"><i aria-hidden="true"></i>demo</span>
         </div>
         <div class="con-body">
-          <section class="pane on" data-pane="voice" role="tabpanel">
+          <section class="pane on" data-pane="ads" role="tabpanel">
+            <div class="ads-head"><div><span class="mono">Meta + Google · yesterday, 6:00 AM</span><strong>Coastal Pool Care</strong></div><span class="chip chip-live" id="adsState">reading</span></div>
+            <ul class="adrows" id="adrows">
+              <li data-v="A"><span class="adv">A</span><div class="adm"><b>Pump repair, after hours</b><span class="mono">video · 15s</span></div><div class="adk"><b data-k="212" data-pre="$">$0</b><span>spend</span></div><div class="adk"><b data-k="9">0</b><span>calls</span></div><div class="adk"><b data-k="6">0</b><span>booked</span></div><div class="adbar"><i style="--w:33%"></i></div><span class="chip adflag" hidden></span></li>
+              <li data-v="B"><span class="adv">B</span><div class="adm"><b>Weekly cleaning, from a real photo</b><span class="mono">still</span></div><div class="adk"><b data-k="190" data-pre="$">$0</b><span>spend</span></div><div class="adk"><b data-k="4">0</b><span>calls</span></div><div class="adk"><b data-k="2">0</b><span>booked</span></div><div class="adbar"><i style="--w:33%"></i></div><span class="chip adflag" hidden></span></li>
+              <li data-v="C"><span class="adv">C</span><div class="adm"><b>"Best pool service in Boca"</b><span class="mono">still · slogan</span></div><div class="adk"><b data-k="205" data-pre="$">$0</b><span>spend</span></div><div class="adk"><b data-k="1">0</b><span>calls</span></div><div class="adk"><b data-k="0">0</b><span>booked</span></div><div class="adbar"><i style="--w:33%"></i></div><span class="chip adflag" hidden></span></li>
+            </ul>
+            <div class="adlog" id="adlog" aria-live="polite"></div>
+          </section>
+          <section class="pane" data-pane="voice" role="tabpanel" hidden>
             <div class="call-head">
               <div><span class="mono">Incoming · 6:42 PM · after hours</span><strong>Coastal Pool Care</strong></div>
               <span class="call-live"><i class="wave" id="wave" aria-hidden="true"><b></b><b></b><b></b><b></b></i><span class="chip chip-live" id="callState">ringing</span></span>
@@ -149,6 +168,95 @@
     </ul>
   </div>
 </section>
+<!-- ADS CHAPTER -->
+<section class="ads" id="ads">
+  <div class="wrap">
+    <p class="eyebrow reveal"><span class="chap-n">02</span>How we run ads</p>
+    <h2 class="h-xl reveal">Ads are the fastest way to lose money in a service business. Also the fastest way to grow one.</h2>
+    <p class="ads-lede reveal">The difference is the ten seconds after the click. Most agencies own the click and nothing after it. <b>We own the page it lands on, the phone it rings, the calendar it books into and the invoice it turns into.</b> That is the only reason we are willing to run ads at all.</p>
+
+    <div class="bezel tracer reveal" id="tracer"><div class="bezel-in">
+      <div class="tracer-head">
+        <div><h3>Follow one ad dollar.</h3><p>Switch off any link in the chain and watch where the dollar dies. Every one of these is a system we run, which is why we can promise the chain holds.</p></div>
+        <div class="toggles">
+          <button type="button" class="tog" data-node="1" aria-pressed="true"><i aria-hidden="true"></i>Page loads in a breath</button>
+          <button type="button" class="tog" data-node="2" aria-pressed="true"><i aria-hidden="true"></i>Phone answered after 5 PM</button>
+          <button type="button" class="tog" data-node="3" aria-pressed="true"><i aria-hidden="true"></i>Booked before they hang up</button>
+          <button type="button" class="tog" data-node="4" aria-pressed="true"><i aria-hidden="true"></i>Invoice out when the job closes</button>
+        </div>
+      </div>
+      <div class="funnel" id="funnel">
+        <div class="node" data-n="0"><i>$</i><b>The click</b><span>Meta or Google, a homeowner with a problem tonight.</span><em></em></div>
+        <div class="node" data-n="1"><i>1</i><b>The page</b><span>Loads before they give up. Says what you do and shows the number.</span><em></em></div>
+        <div class="node" data-n="2"><i>2</i><b>The call</b><span>Picked up in one ring, 24 hours a day, by a voice that knows your prices.</span><em></em></div>
+        <div class="node" data-n="3"><i>3</i><b>The booking</b><span>A real slot on your real calendar, confirmed by text.</span><em></em></div>
+        <div class="node" data-n="4"><i>4</i><b>The invoice</b><span>Sent when the job closes, chased politely until paid.</span><em></em></div>
+      </div>
+      <p class="tracer-out" id="tracerOut">Every link holds. The dollar you spent on the click comes back as a paid job, and the ad that produced it gets more budget tomorrow morning.</p>
+    </div></div>
+
+    <div class="ads-grid">
+      <article class="bezel reveal"><div class="bezel-in">
+        <p class="eyebrow">Creative</p>
+        <h3>Made for the feed, not the brochure.</h3>
+        <p>We shoot nothing generic. Each ad makes one claim you can back, in your voice, aimed at one moment: the pump grinding at 6:40 PM, the green water before the party. Video and stills, several variants, all tested against each other from day one.</p>
+        <ul class="checks">
+          <li>Every claim comes from your services and your prices</li>
+          <li>Losing variants are cut, winners get the budget</li>
+          <li>You approve every ad before it spends a dollar</li>
+        </ul>
+      </div></article>
+      <article class="bezel reveal loop"><div class="bezel-in">
+        <p class="eyebrow">The daily loop</p>
+        <h3>Watched every morning by something that never gets bored.</h3>
+        <ol class="loop-list" id="loopList"><i class="loop-line" aria-hidden="true"></i>
+          <li><span class="mono">06:00</span><b>Pull yesterday</b><span>Spend, clicks and calls from Meta and Google, per ad.</span></li>
+          <li><span class="mono">06:05</span><b>Match every lead to a job</b><span>Which ad rang the phone. Which call became a booking. Which booking got paid.</span></li>
+          <li><span class="mono">06:10</span><b>Cut and scale</b><span>Anything below the line for three days is paused. What books jobs gets more.</span></li>
+          <li><span class="mono">06:20</span><b>Write the note</b><span>One paragraph to you: what changed and why. No dashboard to log into.</span></li>
+          <li><span class="mono">Friday</span><b>The weekly report</b><span>Five numbers in plain words. Spend, leads, calls answered, jobs booked, cost per job.</span></li>
+        </ol>
+      </div></article>
+      <article class="bezel reveal"><div class="bezel-in">
+        <p class="eyebrow">The report</p>
+        <h3>Five numbers. No impressions.</h3>
+        <p>You will never get a report about reach, engagement or brand lift. You get the numbers that pay the truck.</p>
+        <div class="report" aria-label="Example of the weekly report layout">
+          <div class="rh"><span>Week of Sep 7 · demo layout</span><span>Coastal Pool Care</span></div>
+          <div class="rr"><span>Ad spend</span><b>$1,204</b></div>
+          <div class="rr"><span>Calls from ads</span><b>31</b></div>
+          <div class="rr"><span>Answered in one ring</span><b>31 of 31</b></div>
+          <div class="rr"><span>Jobs booked</span><b>14</b></div>
+          <div class="rr"><span>Cost per booked job</span><b>$86</b></div>
+          <p class="rn">Illustrative numbers to show the layout. Yours are yours; we never publish a client’s figures.</p>
+        </div>
+      </div></article>
+    </div>
+
+    <div class="ads-foot">
+      <div class="bezel reveal"><div class="bezel-in">
+        <h3>What stays yours</h3>
+        <ul class="checks">
+          <li>The ad accounts, the pixel, the audiences and every byte of data</li>
+          <li>The creative, the landing page and the phone number</li>
+          <li>The right to leave with all of it, any time</li>
+        </ul>
+      </div></div>
+      <div class="bezel reveal"><div class="bezel-in">
+        <h3>What we will not do</h3>
+        <ul class="checks">
+          <li>Run ads to a site that says “Not Secure” or a phone nobody answers</li>
+          <li>Report vanity metrics or hide spend inside a “media fee”</li>
+          <li>Promise a number of leads before the audit</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="ads-cta reveal">
+      <a class="btn" href="#schedule">Start with the audit <span class="btn-ic" aria-hidden="true">↗</span></a>
+      <a class="btn btn-ghost" href="#demo">Watch the ad loop run</a>
+    </div>
+  </div>
+</section>
 <!-- STATEMENT (scroll-scrubbed) -->
 <section class="statement" id="why">
   <div class="statement-pin">
@@ -164,11 +272,11 @@
   <div class="wrap">
     <div class="split">
       <div class="split-l sticky-l">
-        <p class="eyebrow reveal">Where the money leaks</p>
+        <p class="eyebrow reveal"><span class="chap-n">03</span>Where the money leaks</p>
         <h2 class="reveal">A service business loses money in five quiet places. Most agencies sell you a patch for one.</h2>
-        <p class="leak-hint reveal">Tap the ones that sound familiar and we'll tell you where to start.</p>
+        <p class="leak-hint reveal">Tap the ones that sound familiar and we’ll tell you where to start.</p>
         <div class="finder" id="finder" hidden>
-          <span class="mono">Where we'd start</span>
+          <span class="mono">Where we’d start</span>
           <b id="finderStage"></b>
           <p id="finderWhy"></p>
           <div class="row"><a class="btn btn-sm" href="#journey">See the stage <span class="btn-ic" aria-hidden="true">↓</span></a><a class="btn btn-sm btn-ghost" href="#schedule">Schedule the audit</a></div>
@@ -176,11 +284,11 @@
       </div>
       <div class="split-r leaks" id="leaks">
         <i class="leak-line" aria-hidden="true"></i>
-        <div class="leak reveal"><span class="mono">01</span><h3>The call nobody picked up</h3><p>You're on a roof, in a pump room, or on a boat. The phone rings four times and the homeowner calls the next name on the list. You never know it happened.</p></div>
-        <div class="leak reveal"><span class="mono">02</span><h3>The site that says "Not Secure"</h3><p>Chrome puts a warning next to your name before anyone sees your work. A ten-year-old page builder, a dead certificate, a phone number buried under a stock photo.</p></div>
-        <div class="leak reveal"><span class="mono">03</span><h3>The file you can't upload</h3><p>Law, medical, accounting. Your team wants what ChatGPT does, and you can't hand it client files. So nobody uses it, or worse, somebody does.</p></div>
+        <div class="leak reveal"><span class="mono">01</span><h3>The call nobody picked up</h3><p>You’re on a roof, in a pump room, or on a boat. The phone rings four times and the homeowner calls the next name on the list. You never know it happened.</p></div>
+        <div class="leak reveal"><span class="mono">02</span><h3>The site that says “Not Secure”</h3><p>Chrome puts a warning next to your name before anyone sees your work. A ten-year-old page builder, a dead certificate, a phone number buried under a stock photo.</p></div>
+        <div class="leak reveal"><span class="mono">03</span><h3>The file you can’t upload</h3><p>Law, medical, accounting. Your team wants what ChatGPT does, and you can’t hand it client files. So nobody uses it, or worse, somebody does.</p></div>
         <div class="leak reveal"><span class="mono">04</span><h3>The ad budget nobody checks</h3><p>Money goes out to Meta and Google every day. Nobody looks at which ad brought the last five jobs, so the losing one keeps running and the winning one starves.</p></div>
-        <div class="leak reveal"><span class="mono">05</span><h3>The business that lives in a spreadsheet</h3><p>Jobs in a text thread, invoices in a notebook, the schedule in one person's head. It works until that person takes a day off.</p></div>
+        <div class="leak reveal"><span class="mono">05</span><h3>The business that lives in a spreadsheet</h3><p>Jobs in a text thread, invoices in a notebook, the schedule in one person’s head. It works until that person takes a day off.</p></div>
       </div>
     </div>
   </div>
@@ -190,7 +298,7 @@
   <div class="journey-pin">
     <div class="wrap journey-head">
       <div>
-        <p class="eyebrow">Twelve systems, five stages, in order</p>
+        <p class="eyebrow"><span class="chap-n">04</span>Twelve systems, five stages, in order</p>
         <h2>The order a dollar moves through your business.</h2>
       </div>
       <div class="journey-meter">
@@ -216,7 +324,7 @@
       <article class="stage">
         <div class="stage-l"><span class="stage-n">03</span><h3>Get booked and priced</h3><p>From first contact to a job on the calendar with a number on it.</p></div>
         <div class="stage-r">
-        <div class="sys"><span class="sys-ic"><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M9 14l2 2 4-4"/></svg></span><div><p class="mono sys-n">05</p><h4>Scheduling</h4><p>Jobs land on the calendar without phone tag. Reminders, reschedules, the day's route.</p></div></div>
+        <div class="sys"><span class="sys-ic"><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M9 14l2 2 4-4"/></svg></span><div><p class="mono sys-n">05</p><h4>Scheduling</h4><p>Jobs land on the calendar without phone tag. Reminders, reschedules, the day’s route.</p></div></div>
         <div class="sys"><span class="sys-ic"><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l4 4v13H6z"/><path d="M15 3.5v4h4"/><path d="M9 11h6M9 14h6M9 17h3"/></svg></span><div><p class="mono sys-n">06</p><h4>Quotes and estimates</h4><p>Photos and a few answers in, a priced estimate out, approved from their phone.</p></div></div>
         </div>
       </article>
@@ -245,10 +353,28 @@
 <!-- FLAGSHIPS (stacking) -->
 <section class="flagships" id="flagships">
   <div class="wrap">
-    <p class="eyebrow reveal">Three flagships</p>
+    <p class="eyebrow reveal"><span class="chap-n">05</span>Four flagships</p>
     <h2 class="reveal">Where most businesses start.</h2>
   </div>
   <div class="wrap stack">
+    <article class="bezel stack-card stack-hi"><div class="bezel-in">
+      <div class="stack-copy">
+        <span class="tag">Flagship</span>
+        <h3>AI paid ads</h3>
+        <p class="card-lede">Meta and Google campaigns built from your real services, watched every morning, budget moved to whatever booked a job yesterday. Run by the same team that answers the phone and built the page, so the chain from click to invoice never breaks between vendors.</p>
+        <ul class="checks">
+          <li>Creative in your voice, several variants, tested from day one</li>
+          <li>Cut and scale decisions daily, a plain-words note to you</li>
+          <li>Accounts, pixel and data stay in your name</li>
+        </ul>
+      </div>
+      <div class="stack-side">
+        <p class="mono side-k">Why we can run ads</p>
+        <p class="side-big">We own the chain.</p>
+        <p class="side-note">An ad agency owns the click. We also own the page, the phone, the calendar and the invoice. When one of those leaks, we fix it instead of blaming it.</p>
+        <a class="link" href="#ads">How we run ads <span aria-hidden="true">→</span></a>
+      </div>
+    </div></article>
     <article class="bezel stack-card"><div class="bezel-in">
       <div class="stack-copy">
         <span class="tag">You are looking at one</span>
@@ -272,13 +398,13 @@
         <p class="side-note">No analytics, no tag manager, no chat widget from a vendor. Fonts and motion are served from this domain.</p>
       </div>
     </div></article>
-    <article class="bezel stack-card stack-hi"><div class="bezel-in">
+    <article class="bezel stack-card"><div class="bezel-in">
       <div class="stack-copy">
-        <span class="tag">Flagship</span>
+        <span class="tag">Answered</span>
         <h3>Voice agent</h3>
         <p class="card-lede">A trained voice on your line, 24 hours a day. It answers by name, knows your services and prices, books the job into your calendar, texts the confirmation and tells you what happened. You hear the demo before it ever takes a live call.</p>
         <ul class="checks">
-          <li>Answers every call, including after hours and while you're on a job</li>
+          <li>Answers every call, including after hours and while you’re on a job</li>
           <li>Books into your real calendar, no double-booking</li>
           <li>Transcript and summary of every call to your phone</li>
         </ul>
@@ -295,7 +421,7 @@
       <div class="stack-copy">
         <span class="tag">Private</span>
         <h3>Private AI</h3>
-        <p class="card-lede">Document intelligence that runs on hardware you control. Ask questions across every file you own and get cited answers. Built for law, medical and accounting practices that can't hand client files to a public model.</p>
+        <p class="card-lede">Document intelligence that runs on hardware you control. Ask questions across every file you own and get cited answers. Built for law, medical and accounting practices that can’t hand client files to a public model.</p>
         <ul class="checks">
           <li>Answers cite the file and the page</li>
           <li>Team access with roles and an audit trail</li>
@@ -316,8 +442,8 @@
   <div class="wrap">
     <div class="split">
       <div class="split-l sticky-l">
-        <p class="eyebrow reveal">How it goes</p>
-        <h2 class="reveal">Look once. Show what's possible. Close every gap.</h2>
+        <p class="eyebrow reveal"><span class="chap-n">06</span>How it goes</p>
+        <h2 class="reveal">Look once. Show what’s possible. Close every gap.</h2>
         <p class="reveal muted">No decks, no discovery phase. The first thing you get from us is a ranked list of what your business is losing and what it takes to stop it, whether you hire us or not.</p>
         <ul class="checks terms-mini reveal">
           <li>The audit is free. You keep the list either way.</li>
@@ -340,9 +466,9 @@
       <img id="portrait" src="assets/owen.webp" srcset="assets/owen-sm.webp 440w, assets/owen.webp 880w" sizes="(max-width: 760px) 90vw, 400px" width="880" height="1100" alt="Owen, founder of TOAO" loading="lazy">
     </div></div>
     <div class="founder-copy">
-      <p class="eyebrow reveal">Built by Owen</p>
+      <p class="eyebrow reveal"><span class="chap-n">07</span>Built by Owen</p>
       <h2 class="reveal">I run this stack on my own business before I sell it to yours.</h2>
-      <p class="reveal">I'm 18. By day I run operations for an e-commerce services company. By night I build the AI agent that runs TOAO: it audits prospects, builds the sites, drafts the reports and keeps the books. Everything on this page is something I use, not something I read about.</p>
+      <p class="reveal">I’m 18. By day I run operations for an e-commerce services company. By night I build the AI agent that runs TOAO: it audits prospects, builds the sites, drafts the reports and keeps the books. Everything on this page is something I use, not something I read about.</p>
       <p class="reveal">The name is the promise. The One And Only: one team that has seen the whole business. You get the same stack I run, and if something breaks at 9 PM you are texting the person who built it.</p>
       <p class="reveal sig mono">TOAO · The One And Only</p>
     </div>
@@ -357,8 +483,10 @@
       <details class="reveal"><summary>Do I have to take all twelve?<span aria-hidden="true"></span></summary><p>No. The audit ranks the gaps by what they cost you and we start with the first one. Most businesses begin with the phone or the site. Some never need more than two systems, and we say so.</p></details>
       <details class="reveal"><summary>What does the voice agent sound like?<span aria-hidden="true"></span></summary><p>A natural voice with a name, trained on how you actually describe your work. You hear a recorded demo answering a realistic call before it ever picks up a live one.</p></details>
       <details class="reveal"><summary>Where does the private AI run?<span aria-hidden="true"></span></summary><p>On a machine in your office or on a private server in your name. Your documents are indexed there and never sent to a public model. We can show you the network traffic to prove it.</p></details>
-      <details class="reveal"><summary>Do you run the ads or just set them up?<span aria-hidden="true"></span></summary><p>We run them. The agent checks the accounts daily, moves budget to what is booking jobs, and cuts what isn't. You get a weekly report in plain words and you keep ownership of the accounts and the data.</p></details>
-      <details class="reveal"><summary>Will you make up reviews or numbers for my site?<span aria-hidden="true"></span></summary><p>Never. Every rating, year in business and licence number on your site comes from you or a source we can verify. If we can't verify it, the block is removed, not guessed.</p></details>
+      <details class="reveal"><summary>Do you run the ads or just set them up?<span aria-hidden="true"></span></summary><p>We run them. Every morning the agent pulls yesterday’s numbers, matches each lead to a call and a booked job, pauses what is below the line and gives more to what booked. You get a one-paragraph note daily and five numbers on Friday. The accounts, the pixel and the data stay in your name.</p></details>
+      <details class="reveal"><summary>What does it cost to run ads with you?<span aria-hidden="true"></span></summary><p>Two parts: the ad spend, which goes straight to Meta or Google from your own account, and a management fee we agree in writing after the audit, against what a booked job is worth to you. No spend hidden inside a fee, no minimum term.</p></details>
+      <details class="reveal"><summary>Will you run ads for me right away?<span aria-hidden="true"></span></summary><p>Not if the page says “Not Secure” or the phone goes to voicemail after five. Traffic to a leak is the most expensive kind. We fix the chain first, usually within the first two weeks, then turn the ads on.</p></details>
+      <details class="reveal"><summary>Will you make up reviews or numbers for my site?<span aria-hidden="true"></span></summary><p>Never. Every rating, year in business and licence number on your site comes from you or a source we can verify. If we can’t verify it, the block is removed, not guessed.</p></details>
     </div>
   </div>
 </section>
@@ -366,7 +494,7 @@
 <section class="schedule" id="schedule">
   <div class="wrap">
     <div class="sched-head">
-      <p class="eyebrow reveal">Schedule a call</p>
+      <p class="eyebrow reveal"><span class="chap-n">08</span>Schedule a call</p>
       <h2 class="reveal">Free full business audit. Pick a time.</h2>
     </div>
     <div class="bezel schedule-card reveal"><div class="bezel-in">
@@ -409,9 +537,9 @@
         <form class="form book-form" id="form" novalidate hidden>
           <label>Your name<input name="name" type="text" autocomplete="name" required></label>
           <label>Business<input name="business" type="text" autocomplete="organization" required></label>
-          <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" required></label>
           <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label>
-          <label class="focus">Anything you want looked at first? (optional)<input name="focus" type="text" placeholder="e.g. we miss calls after 5, the site is from 2014"></label>
+          <label class="focus">Anything you want looked at first? (optional)<input name="focus" type="text" placeholder="e.g. we miss calls after 5…"></label>
           <button class="btn btn-full" type="submit" id="confirmBtn">Confirm the audit call <span class="btn-ic" aria-hidden="true">↗</span></button>
           <p class="form-note" id="formNote">A calendar invite lands in your inbox the moment you confirm.</p>
         </form>
@@ -444,7 +572,7 @@
   <div class="wrap">
     <div class="foot-cols">
       <div><span class="brand-word">T<em>O</em>AO</span><p class="mono">The One And Only</p><p class="foot-blurb">One team that looks at the whole business once, shows what is possible, and closes every gap.</p></div>
-      <div><p class="foot-h">Site</p><a href="index.html#journey">The twelve</a><a href="index.html#flagships">Flagships</a><a href="index.html#process">Process</a><a href="index.html#founder">Founder</a><a href="index.html#schedule">Schedule a call</a></div>
+      <div><p class="foot-h">Site</p><a href="index.html#ads">How we run ads</a><a href="index.html#journey">The twelve</a><a href="index.html#flagships">Flagships</a><a href="index.html#process">Process</a><a href="index.html#founder">Founder</a><a href="index.html#schedule">Schedule a call</a></div>
       <div><p class="foot-h">Free resources</p><a href="resources/website-audit.html">Website auditor</a><a href="resources/missed-call.html">Cost of a missed call</a><a href="index.html#leaks">Where to start</a><a href="resources/index.html">All resources</a></div>
       <div><p class="foot-h">Company</p><a href="mailto:owen@toao.app">owen@toao.app</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a></div>
     </div>

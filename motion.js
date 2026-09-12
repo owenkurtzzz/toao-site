@@ -47,6 +47,11 @@
     gsap.to('.leak-line', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '#leaks', start: 'top 75%', end: 'bottom 55%', scrub: true } });
   }
 
+  /* ads: the daily-loop line draws as you read it */
+  if ($('.loop-line')) {
+    gsap.to('.loop-line', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '#loopList', start: 'top 80%', end: 'bottom 60%', scrub: true } });
+  }
+
   /* journey: pinned horizontal track with a meter, desktop only */
   const track = $('#jTrack');
   if (track) {
