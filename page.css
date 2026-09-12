@@ -58,6 +58,9 @@
 .post-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 
 /* ---------- footer columns ---------- */
+.foot-sig{font-size:clamp(4.5rem,18vw,15rem);font-weight:700;letter-spacing:-.06em;line-height:.85;margin:10px 0 26px;color:transparent;-webkit-text-stroke:1px var(--hair-3);user-select:none}
+.foot-sig em{font-style:normal;color:transparent;-webkit-text-stroke:1px var(--accent)}
+.nf h1{max-width:14ch}
 .foot-cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;margin-bottom:28px;border-bottom:1px solid var(--hair)}
 .foot-cols .foot-h{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 12px;font-weight:500}
 .foot-cols a{display:block;color:var(--muted);font-size:.92rem;padding:4px 0}
