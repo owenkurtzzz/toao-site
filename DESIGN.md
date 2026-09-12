@@ -156,6 +156,21 @@ peer-level, numbers-grounded, shows the work, no guru posturing.
 - Form: labelled inputs, 48px tall, orange focus ring. Submit composes a
   mailto to owen@toao.app until a real backend exists.
 
+## The ads chapter (02)
+
+- The one inverted chapter on the site: cream canvas (#f3efe8), ink text,
+  same orange. It re-scopes the tokens on `.ads`, so bezels, buttons and
+  checks flip with it. The fixed nav switches to solid dark over it
+  (`.nav.on-light`, toggled by an IntersectionObserver in site.js).
+- Contents, in order: chapter opener (h-xl), the ad-dollar tracer (five
+  nodes, four toggles, no invented percentages, only where the dollar dies),
+  three columns (creative, the daily loop timeline with a scroll-drawn line,
+  the five-number report as a demo layout), what stays yours / what we will
+  not do, two CTAs. Ads is also the default console tab and the first
+  flagship. Everything else on the page follows in the money order.
+- Hero carries an inline auditor form that submits to
+  resources/website-audit.html?url=; the auditor runs on arrival.
+
 ## Interactives
 
 - Missed-call calculator (interact.js, resources/missed-call.html): four sliders, every output is

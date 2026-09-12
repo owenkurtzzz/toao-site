@@ -10,7 +10,7 @@
 .post-card .bezel-in{padding:0;display:flex;flex-direction:column;overflow:hidden}
 .post-body{padding:26px 24px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
 .post-body .mono{font-size:.62rem;letter-spacing:.14em;color:var(--accent)}
-.post-body h3{font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
+.post-body h3,.post-body h2{font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
 .post-body p{color:var(--muted);font-size:.95rem;line-height:1.5}
 .post-body .link{margin-top:auto;padding-top:8px}
 .post-card:hover .bezel-in{border-color:var(--hair-3)}
