@@ -186,7 +186,9 @@ peer-level, numbers-grounded, shows the work, no guru posturing.
 ## Pages
 
 - `resources/index.html`, `resources/website-audit.html` (the auditor,
-  audit.js), `privacy.html`, `terms.html`, `booked.html`. No blog (Owen,
+  audit.js), `resources/missed-call.html`, `privacy.html`, `terms.html`,
+  `booked.html` (noindex), `404.html` (root-relative links, served by GitHub
+  Pages for any missing path), `robots.txt`, `sitemap.xml`. No blog (Owen,
   2026-09-10): free tools instead of posts.
   Inner pages share the nav and four-column footer by copy (no build
   step); when the nav or footer changes, change it in every file. Layout
@@ -230,6 +232,16 @@ peer-level, numbers-grounded, shows the work, no guru posturing.
   right column. Copy in Owen's voice: short sentences, a fact first.
 - New card: wrap in `.bezel > .bezel-in`, never a bare bordered box.
 - New number: it must be sourced. Put the source in a comment next to it.
+
+## Audit baseline (2026-09-12)
+
+Lighthouse mobile, every public page: 100 accessibility, 100 best
+practices, 100 SEO, 100 agentic. booked.html scores 60 on SEO only because
+it is deliberately noindex. Zero console errors on a fresh load, zero broken
+internal links or anchors across 8 pages, zero third-party requests, LCP
+148 ms and CLS 0 on an unthrottled local load. Re-run after any structural
+change: link checker (python, see Live Log 2026-09-12), chrome-devtools
+lighthouse_audit, and the web-interface-guidelines list.
 
 ## Known gaps
 
